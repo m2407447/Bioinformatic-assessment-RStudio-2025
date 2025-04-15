@@ -1,0 +1,33 @@
+---
+title: "Advanced Bioinformatics 2025 assessment"
+author: "m2407447"
+output: html_document
+---
+## Task 1
+
+In this task, I will use the `sum()` function and the `:` operator in R to calculate the sum of all integers from 5 to 55.  
+The `:` operator generates a sequence of numbers (in this case, 5 to 55), and `sum()` adds them together. In this case the sum is 1530
+
+```{r}
+sum(5:55)
+```
+## Task 2
+
+In this task, I define a function called `sumfun()` that takes a single input parameter `n`, and calculates the sum of all integers from 5 to `n` using the `sum()` function and the `:` operator. I then use the function to compute the sum for `n = 10`, `n = 20`, and `n = 100`.
+
+```{r}
+# Define the function
+sumfun <- function(n) {
+  sum(5:n)
+}
+```
+
+```{r}
+# Use the function with different values of n
+sumfun(10)
+sumfun(20)
+sumfun(100)
+
+```
+
+
