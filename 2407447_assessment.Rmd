@@ -68,6 +68,29 @@ ggplot(mtcars, aes(x = factor(gear), y = mpg, fill = factor(gear))) +
   ) +
   theme_minimal()
 ```
+## Task 5
+
+In this task, I fit a linear model to explore the relationship between a car's speed (`speed`) and its stopping distance (`dist`) using the `cars` dataset. The `lm()` function is used to compute the regression line.
+
+### Step 1: Fit the linear model
+```{r}
+# Fit the linear model
+model <- lm(dist ~ speed, data = cars)
+
+# Show the model summary
+summary(model)
+```
+
+### Step 2: Interpret the output
+
+- **Fitted slope (speed coefficient)**: This tells us how much the stopping distance increases for every 1 mph increase in speed.
+- **Fitted intercept**: This is the estimated stopping distance when speed = 0 mph.
+- **Standard errors**: These represent the variability (uncertainty) in the slope and intercept estimates.
+
+### Step 3: Units
+
+- `speed` is measured in **miles per hour (mph)**  
+- `dist` is measured in **feet**
 
 
 
