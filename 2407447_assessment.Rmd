@@ -119,5 +119,60 @@ ggplot(cars, aes(x = speed, y = dist)) +
 - The **blue points** represent the data (speed vs. stopping distance).
 - The **red line** represents the fitted linear regression model, showing the relationship between speed and stopping distance.
 
+## Task 7
+
+In this task, I estimate the average **reaction time** for a driver to start breaking using the `cars` dataset. The assumption is that once breaking starts, the breaking distance is proportional to the square of the speed. 
+
+### Step 1: Fit the Linear Regression Model
+
+First, I will fit a linear regression model to the `dist` (breaking distance) as a function of `speed^2`. The relationship is assumed to be:
+
+\[
+\text{dist} = \text{reaction time} + k \times \text{speed}^2
+\]
+
+```{r}
+# Fit the linear model
+model_reaction_time <- lm(dist ~ I(speed^2), data = cars)
+
+# Show the model summary
+summary(model_reaction_time)
+```
+
+### Step 2: Calculate Reaction Time
+
+From the regression results, I can extract the **reaction time** by subtracting the fitted intercept (which represents the reaction time) from the regression model.
+
+```{r}
+# Extract the fitted intercept (reaction time)
+reaction_time <- coef(model_reaction_time)[1]
+reaction_time
+```
+
+### Step 3: Interpretation
+
+- The **reaction time** represents the constant time it takes the driver to start breaking.
+- The **slope** (coefficient of `speed^2`) represents the constant of proportionality `k` for the breaking distance.
+
+### Step 4: Plot the Data and the Fitted Relationship
+
+I will now use `ggplot2` to visualize the data and the fitted regression line.
+
+```{r}
+# Load ggplot2 for plotting
+library(ggplot2)
+
+# Create the scatter plot and the fitted regression line
+ggplot(cars, aes(x = speed, y = dist)) +
+  geom_point(color = 'blue', size = 2) +   # Data points
+  geom_smooth(method = 'lm', formula = y ~ I(x^2), color = 'red', se = FALSE) +  # Regression line
+  labs(
+    title = "Speed vs. Stopping Distance with Reaction Time",
+    x = "Speed (mph)",
+    y = "Stopping Distance (feet)"
+  ) +
+  theme_minimal()
+```
+
 
 
