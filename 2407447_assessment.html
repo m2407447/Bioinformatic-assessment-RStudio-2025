@@ -387,6 +387,28 @@ sumfun(10)</code></pre>
 <pre class="r"><code>sumfun(100)</code></pre>
 <pre><code>## [1] 5040</code></pre>
 </div>
+<div id="task-3" class="section level2">
+<h2>Task 3</h2>
+<p>In this task, I generate the first 12 numbers in the Fibonacci
+sequence using a <code>for</code> loop in R. The Fibonacci sequence is
+defined such that each number is the sum of the two preceding ones,
+starting from 1 and 1.</p>
+<pre class="r"><code># Create a numeric vector to store Fibonacci numbers
+fib &lt;- numeric(12)
+
+# Set the first two numbers
+fib[1] &lt;- 1
+fib[2] &lt;- 1
+
+# Use a for loop to calculate the next numbers
+for (i in 3:12) {
+  fib[i] &lt;- fib[i - 1] + fib[i - 2]
+}
+
+# Print the result
+fib</code></pre>
+<pre><code>##  [1]   1   1   2   3   5   8  13  21  34  55  89 144</code></pre>
+</div>
 
 
 
