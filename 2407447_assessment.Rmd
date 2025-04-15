@@ -49,6 +49,25 @@ for (i in 3:12) {
 # Print the result
 fib
 ```
+## Task 4
+
+In this task, I use the `ggplot2` package to create a boxplot of miles per gallon (`mpg`) as a function of the number of gears (`gear`) in the `mtcars` dataset. The `fill` aesthetic is used to colour the boxes based on the number of gears.
+
+```{r, message=FALSE, warning=FALSE}
+# Load ggplot2
+library(ggplot2)
+
+# Create the boxplot
+ggplot(mtcars, aes(x = factor(gear), y = mpg, fill = factor(gear))) +
+  geom_boxplot() +
+  labs(
+    title = "Miles per Gallon by Number of Gears",
+    x = "Number of Gears",
+    y = "Miles per Gallon (mpg)",
+    fill = "Gears"
+  ) +
+  theme_minimal()
+```
 
 
 
