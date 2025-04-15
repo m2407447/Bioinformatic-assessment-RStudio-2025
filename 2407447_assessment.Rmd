@@ -92,5 +92,32 @@ summary(model)
 - `speed` is measured in **miles per hour (mph)**  
 - `dist` is measured in **feet**
 
+## Task 6
+
+In this task, I use `ggplot2` to plot the data points from the `cars` dataset along with the fitted linear regression line from Task 5. 
+
+### Step 1: Create the Plot
+
+```{r}
+# Load ggplot2
+library(ggplot2)
+
+# Create the scatter plot with the regression line
+ggplot(cars, aes(x = speed, y = dist)) +
+  geom_point(color = 'blue', size = 2) +   # Plot the data points
+  geom_smooth(method = 'lm', color = 'red', se = FALSE) +  # Add the linear fit line
+  labs(
+    title = "Speed vs. Stopping Distance",
+    x = "Speed (mph)",
+    y = "Stopping Distance (feet)"
+  ) +
+  theme_minimal()
+```
+
+### Step 2: Interpretation
+
+- The **blue points** represent the data (speed vs. stopping distance).
+- The **red line** represents the fitted linear regression model, showing the relationship between speed and stopping distance.
+
 
 
